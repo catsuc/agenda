@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg transition-colors;
+  }
+
+  .button-primary {
+    @apply text-white bg-indigo-500 hover:bg-indigo-600;
+  }
+
+  .button-secondary {
+    @apply text-indigo-600 bg-indigo-100 hover:bg-indigo-200;
+  }
+}
