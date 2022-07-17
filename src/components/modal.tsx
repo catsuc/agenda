@@ -5,20 +5,22 @@ interface ModalProps {
   title?: string;
   description?: string;
   isOpen: boolean;
-  handleClose: () => void;
+  onClose: () => void;
   children: React.ReactNode;
+  initialFocus?: React.MutableRefObject<HTMLElement | null>;
 }
 
 export const Modal: React.FC<ModalProps> = ({
-  handleClose,
-  isOpen,
-  description,
-  title,
   children,
+  isOpen,
+  onClose: handleClose,
+  description,
+  initialFocus,
+  title,
 }) => {
   return (
     <Transition show={isOpen} as={Fragment}>
-      <Dialog onClose={handleClose} className="relative z-50">
+      <Dialog onClose={handleClose} className="relative z-50" initialFocus={initialFocus}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
