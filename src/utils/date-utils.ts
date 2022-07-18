@@ -21,7 +21,8 @@ export function getStartTimeFormatted(start: Date): string {
 }
 
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
+const shortDateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short' });
 
-export function getDateFormatted(date: Date): string {
-  return dateFormatter.format(date);
+export function getDateFormatted(date: Date, short: boolean = false): string {
+  return short ? shortDateFormatter.format(date) : dateFormatter.format(date);
 }
