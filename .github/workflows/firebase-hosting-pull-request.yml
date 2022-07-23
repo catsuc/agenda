@@ -1,10 +1,14 @@
 name: Deploy to Firebase Hosting on PR
 
 'on': pull_request
+permissions:
+  contents: write
 
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+
+    concurrency: ci-${{ github.ref }}
 
     runs-on: ubuntu-latest
 
@@ -22,6 +26,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Generate coverage
+        run: npm run test:coverage
+
+      - name: Deploy coverage to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: coverage/lcov-report
+          branch: coverage
 
       - name: Build application
         run: npm run build
