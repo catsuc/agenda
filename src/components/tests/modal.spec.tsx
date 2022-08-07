@@ -25,9 +25,7 @@ describe('<Modal />', () => {
       </Modal>
     );
 
-    expect(() => getByText(/hello world/i)).toThrow(
-      /Unable to find an element/
-    );
+    expect(() => getByText(/hello world/i)).toThrow(/Unable to find an element/);
     expect(handleClose).not.toBeCalled();
   });
 
@@ -63,11 +61,7 @@ describe('<Modal />', () => {
     const handleClose = vi.fn();
 
     const { getByText } = render(
-      <Modal
-        isOpen={true}
-        onClose={handleClose}
-        description="Hello Description"
-      >
+      <Modal isOpen={true} onClose={handleClose} description="Hello Description">
         <div>Hello World</div>
         <input type="text" />
       </Modal>

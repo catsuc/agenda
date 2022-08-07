@@ -14,6 +14,7 @@ export const MainHeader: React.FC = () => {
       <div className="flex gap-2 items-center">
         <button
           className="flex items-center justify-center gap-2 px-3 py-1.5 rounded-lg bg-white/20 transition-colors hover:bg-white/30 disabled:cursor-not-allowed disabled:hover:bg-white/20 disabled:opacity-60"
+          data-testid="add-event-button"
           disabled
         >
           <FiPlus className="h-6" />
@@ -21,12 +22,14 @@ export const MainHeader: React.FC = () => {
         </button>
         <button
           className="px-3 py-1.5 rounded-lg bg-white/20 transition-colors hover:bg-white/30 disabled:cursor-not-allowed disabled:hover:bg-white/20 disabled:opacity-60"
+          data-testid="previous-date-button"
           disabled
         >
           <FiArrowLeft className="h-6" />
         </button>
         <button
           className="px-3 py-1.5 rounded-lg bg-white/20 transition-colors hover:bg-white/30 disabled:cursor-not-allowed disabled:hover:bg-white/20 disabled:opacity-60"
+          data-testid="next-date-button"
           disabled
         >
           <FiArrowRight className="h-6" />
