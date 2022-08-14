@@ -52,7 +52,6 @@ export const Modal: React.FC<ModalProps> = ({
                   {description}
                 </Dialog.Description>
               )}
-
               {children}
             </Dialog.Panel>
           </Transition.Child>
