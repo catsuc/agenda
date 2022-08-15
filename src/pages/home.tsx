@@ -12,6 +12,7 @@ export const Home: React.FC = () => {
       />
       <Modal
         isOpen={modalOpen}
+        setModalOpen={setModalOpen}
         onClose={() => {}}
         title='Criar Evento'
         description='Crie eventos na sua agenda para manter seu dia organizado.'
