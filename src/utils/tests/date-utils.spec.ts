@@ -1,10 +1,9 @@
 import { vi } from 'vitest';
 
-import {
-  getDateFormatted,
-  getStartTimeFormatted,
-  getTimeDurationFormatted,
-} from '../date-utils';
+import { getDateFormatted, getStartTimeFormatted, getTimeDurationFormatted } from '../date-utils';
+
+const ONE_MINUTE = 1000 * 60;
+const ONE_HOUR = ONE_MINUTE * 60;
 
 describe('date-utils', () => {
   beforeAll(() => {
@@ -16,7 +15,7 @@ describe('date-utils', () => {
   });
 
   describe('getDateFormatted', () => {
-    it("should return an formatted date string like 'dd de MM de yyyy' when short is undefined", () => {
+    it("should return a formatted date string like 'dd de MM de yyyy' when short is undefined", () => {
       {
         const output = getDateFormatted(new Date());
 
@@ -29,7 +28,7 @@ describe('date-utils', () => {
       }
     });
 
-    it("should return an formatted date string like 'dd/mm/yyyy' when short is true", () => {
+    it("should return a formatted date string like 'dd/mm/yyyy' when short is true", () => {
       {
         const output = getDateFormatted(new Date(), true);
 
@@ -44,10 +43,80 @@ describe('date-utils', () => {
   });
 
   describe('getStartTimeFormatted', () => {
-    /** @todo create test cases */
+    it("should return a formatted time string like 'hh:mm'", () => {
+      {
+        const output = getStartTimeFormatted(new Date());
+
+        expect(output).toBe('12:00');
+      }
+      {
+        const output = getStartTimeFormatted(new Date(2020, 5, 1, 17, 15));
+
+        expect(output).toBe('17:15');
+      }
+    });
   });
 
   describe('getTimeDurationFormatted', () => {
-    /** @todo create test cases */
+    it('should return duration time in hours', () => {
+      {
+        const output = getTimeDurationFormatted(new Date(), new Date(Date.now() + ONE_HOUR));
+
+        expect(output).toBe('1 hora');
+      }
+      {
+        const output = getTimeDurationFormatted(new Date(), new Date(Date.now() + ONE_HOUR * 2));
+
+        expect(output).toBe('2 horas');
+      }
+    });
+
+    it('should return duration time in minutes', () => {
+      {
+        const output = getTimeDurationFormatted(new Date(), new Date(Date.now() + ONE_MINUTE));
+
+        expect(output).toBe('1 minuto');
+      }
+      {
+        const output = getTimeDurationFormatted(new Date(), new Date(Date.now() + ONE_MINUTE * 15));
+
+        expect(output).toBe('15 minutos');
+      }
+    });
+
+    it('should return duration time in hours and minutes', () => {
+      {
+        const output = getTimeDurationFormatted(
+          new Date(),
+          new Date(Date.now() + ONE_HOUR + ONE_MINUTE)
+        );
+
+        expect(output).toBe('1 hora e 1 minuto');
+      }
+      {
+        const output = getTimeDurationFormatted(
+          new Date(),
+          new Date(Date.now() + ONE_HOUR + ONE_MINUTE * 54)
+        );
+
+        expect(output).toBe('1 hora e 54 minutos');
+      }
+      {
+        const output = getTimeDurationFormatted(
+          new Date(),
+          new Date(Date.now() + ONE_HOUR * 4 + ONE_MINUTE)
+        );
+
+        expect(output).toBe('4 horas e 1 minuto');
+      }
+      {
+        const output = getTimeDurationFormatted(
+          new Date(),
+          new Date(Date.now() + ONE_HOUR * 2 + ONE_MINUTE * 13)
+        );
+
+        expect(output).toBe('2 horas e 13 minutos');
+      }
+    });
   });
 });
