@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,62 +91,62 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >export function getTimeDurationFormatted(start: Date, end: Date): string {</span></span></span>
-<span class="cstat-no" title="statement not covered" >  const startTimestamp = start.getTime();</span>
-<span class="cstat-no" title="statement not covered" >  const endTimestamp = end.getTime();</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const seconds = Math.floor((endTimestamp - startTimestamp) / 1000);</span>
-<span class="cstat-no" title="statement not covered" >  const hours = Math.floor(seconds / 60 / 60);</span>
-<span class="cstat-no" title="statement not covered" >  const minutes = Math.floor((seconds / 60) % 60);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  if (!hours) return `${minutes} minuto${minutes &gt; 1 ? 's' : ''}`;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  if (!minutes) return `${hours} hora${hours &gt; 1 ? 's' : ''}`;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return `${hours} hora${hours &gt; 1 ? 's' : ''} e ${minutes} minuto${minutes &gt; 1 ? 's' : ''}`;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export function getStartTimeFormatted(start: Date): string {</span>
-<span class="cstat-no" title="statement not covered" >  const hours = start.getHours().toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" >  const minutes = start.getMinutes().toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return `${hours}:${minutes}`;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });</span>
-<span class="cstat-no" title="statement not covered" >const shortDateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short' });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export function getDateFormatted(date: Date, short: boolean = false): string {</span>
-<span class="cstat-no" title="statement not covered" >  return short ? shortDateFormatter.format(date) : dateFormatter.format(date);</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function getTimeDurationFormatted(start: Date, end: Date): string {
+  const startTimestamp = start.getTime();
+  const endTimestamp = end.getTime();
+&nbsp;
+  const seconds = Math.floor((endTimestamp - startTimestamp) / 1000);
+  const hours = Math.floor(seconds / 60 / 60);
+  const minutes = Math.floor((seconds / 60) % 60);
+&nbsp;
+  if (!hours) return `${minutes} minuto${minutes &gt; 1 ? 's' : ''}`;
+&nbsp;
+  if (!minutes) return `${hours} hora${hours &gt; 1 ? 's' : ''}`;
+&nbsp;
+  return `${hours} hora${hours &gt; 1 ? 's' : ''} e ${minutes} minuto${minutes &gt; 1 ? 's' : ''}`;
+}
+&nbsp;
+export function getStartTimeFormatted(start: Date): string {
+  const hours = start.getHours().toString().padStart(2, '0');
+  const minutes = start.getMinutes().toString().padStart(2, '0');
+&nbsp;
+  return `${hours}:${minutes}`;
+}
+&nbsp;
+const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
+const shortDateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short' });
+&nbsp;
+export function getDateFormatted(date: Date, short: boolean = false): string {
+  return short ? shortDateFormatter.format(date) : dateFormatter.format(date);
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -154,7 +154,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-07T01:29:09.198Z
+                at 2022-08-28T22:30:02.571Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
